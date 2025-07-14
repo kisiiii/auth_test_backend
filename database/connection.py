@@ -12,12 +12,13 @@ DATABASE=os.getenv("DATABASE")
 USER_NAME=os.getenv("USER_NAME")
 PASSWORD=os.getenv("PASSWORD")
 SERVER_PORT=os.getenv("SERVER_PORT")
-#SSL_CA_PATH=os.getenv("SSL_CA_PATH") #本番で必要
+SSL_CA_PATH=os.getenv("SSL_CA_PATH") #本番で必要
 
-DATABASE_URL = f"mysql+pymysql://{USER_NAME}:{PASSWORD}@{SERVER_URL}:{SERVER_PORT}/{DATABASE}?charset=utf8"
+#ローカルでは不要
+#DATABASE_URL = f"mysql+pymysql://{USER_NAME}:{PASSWORD}@{SERVER_URL}:{SERVER_PORT}/{DATABASE}?charset=utf8"
 
 #本番環境で動かす時用
-#DATABASE_URL = f"mysql+pymysql://{USER_NAME}:{PASSWORD}@{SERVER_URL}:{SERVER_PORT}/{DATABASE}?charset=utf8&ssl_ca={SSL_CA_PATH}"
+DATABASE_URL = f"mysql+pymysql://{USER_NAME}:{PASSWORD}@{SERVER_URL}:{SERVER_PORT}/{DATABASE}?charset=utf8&ssl_ca={SSL_CA_PATH}"
 
 # データベースエンジンを作成
 engine = create_engine(
